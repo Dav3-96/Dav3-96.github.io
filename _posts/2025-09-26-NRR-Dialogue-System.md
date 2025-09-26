@@ -20,4 +20,4 @@ Core Concept: Create an infinite branching dialogue system that can rival that o
 
 The DialogueComponent is the brains behind the whole system. This can be applied to any AActor, APawn or ACharacter that the player can converse with. This controls the flow of the dialogue via a DataTable.
 
-![DialogueComponent.h](assets/images/DialogueSystem/DialogueComponenth.png)
+![DialogueComponent.h](assets/DialogueSystem/DialogueComponenth.png)
