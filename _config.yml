@@ -59,12 +59,12 @@ plugins:
 
 author:
   name   : "David Westcott"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Technical Designer, programmer, Dungeons & Dragons player and Dungeon Master."
+  avatar : "/assets/images/biopic.jpg"
+  bio    : "Systems Programmer and many hat wearer @ SW'LY Games. Working on NINE ROUNDS RAPID. Dungeons & Dragons player and Dungeon Master."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
+      url: "https://davewestcott.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/westzy_"
