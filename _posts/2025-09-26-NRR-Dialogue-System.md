@@ -57,7 +57,7 @@ This is an example of the dialogue data table that can hold the infinitely branc
 
 This is the whole information for row *Initial*, which is the greeting to the player. The player is given two options here, to ask the NPC what they are, or to just say goodbye. Asking the NPC 'What are you?' leads to the NextDialogueID of WhatAreYou, like what was stated above, this matches the next row. Also the player can say 'Goodbye' which leads to NextDialogueID of 'none' which looking back to the DialogueComponent, you can see that 'none' ends the dialogue.
 
-![DialogueDataTable3](assets/DialogueSystem/DialogueDT3.png)
+![DialogueDataTable3](/assets/DialogueSystem/DialogueDT3.png)
 
 This screenshot is a little redundant, but it's a way to show how the dialogue can be simply ended by giving the player one choice. The Response Text could also be set to something like 'End Conversation', or 'End Dialogue' too.
 
