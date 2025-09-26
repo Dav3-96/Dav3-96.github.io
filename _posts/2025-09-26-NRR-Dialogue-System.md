@@ -1,5 +1,6 @@
 ---
-title: "Post: Dialogue System:
+title: "Dialogue System"
+layout: single
 categories:
     - Dialogue
 tags:
