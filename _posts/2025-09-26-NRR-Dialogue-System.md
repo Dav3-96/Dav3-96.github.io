@@ -83,12 +83,14 @@ With this response button I opted to use URichText over a UTextBlock as we are u
 This is everything that is seen by the player. The dialogue window, the NPC's name, what they're saying, an image of the NPC and the player's responses.
 
 ![DialogueWidget.h](/assets/DialogueSystem/DialogueWidgetH.png)
+
 ![DialogueWidget.cpp](/assets/DialogueSystem/DialogueWidgetCPP.png)
 
 ***UpdateDialogue(const FText& NPCText, const TArray<FPlayerResponses>& PlayerResponse)*** This is absolutely everything that is required of this widget. This updates the NPC's dialogue and the player's responses. It sets hte NPCTextBlock, which is the dialogue to be the NPCText, which is provided by the DialogueComponent.
 It also checks for the ResponsesBox, which is just a VerticalBox in the widget that holds all of the player's responses. It clears all of the widgets within the VerticalBox, then populates them based on the number of Responses in PlayerResponses. If there are 13 responses that the player could give, there would be 13 responses created by this function.
 
 ![DialogueExample1](/assets/DialogueSystem/DialogueExample1.png)
+
 ![DialogueExample2](/assets/DialogueSystem/DialogueExample2.png)
 
 These two dialogue's are simple placeholders that show off the player being given one response, and multiple responses. All of the visuals for this widget are a work in progress but it is currently just to show it off that it works.
