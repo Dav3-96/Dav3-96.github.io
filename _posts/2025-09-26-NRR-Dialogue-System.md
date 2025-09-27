@@ -29,11 +29,11 @@ The DialogueComponent is the brains behind the whole system. This can be applied
 
 The DialogueComponent holds information to the DialogueWidget, DialogueDataTable and the CurrentDialogueID. It also had information of the NPC that it is associated with, however that was removed, and I just didn't remove the commented out code, or the NPC line from the header file before the screenshot was taken.
 
-***StartDialogue()*** being BlueprintCallable makes this system extremely modular with blueprints, allowing it to be attached to any actor in the game at all, making the system modular to apply.
+***`StartDialogue()`*** being BlueprintCallable makes this system extremely modular with blueprints, allowing it to be attached to any actor in the game at all, making the system modular to apply.
 
-***SelectPlayerResponse(FName NextDialogueID)*** is what handles the branching system entirely. This gets the DialogueID line from the DataTable that is tied to the player response. If the player response DialogueID is 'none' it ends the conversation, and closes the dialogue window.
+***`SelectPlayerResponse(FName NextDialogueID)`*** is what handles the branching system entirely. This gets the DialogueID line from the DataTable that is tied to the player response. If the player response DialogueID is 'none' it ends the conversation, and closes the dialogue window.
 
-***ShowDialogue(FName DialogueID)*** This is where the dialogue is pulled from the data table and shown to the player. If the dialogue data is nullptr, nothing will happen. If the DialogueWidget doesn't exist, it will create one, then update the dialogue. 
+***`ShowDialogue(FName DialogueID)`*** This is where the dialogue is pulled from the data table and shown to the player. If the dialogue data is nullptr, nothing will happen. If the DialogueWidget doesn't exist, it will create one, then update the dialogue. 
 
 This works by finding the row 'DialogueID' in the DataTable, which must be named appropriately to the PlayerResponse DialogueID.
 
@@ -70,9 +70,9 @@ This widget is pretty much all that is needed for handling the player's response
 
 ![DialogueResponseButton.cpp](/assets/DialogueSystem/ResponseButtonCPP.png)
 
-***Setup(const FPlayerResponse& InPlayerResponse, UDialogueComponent\* InDialogueComponent)*** is how each button that is created gets the correct information to display. The *ResponseTextBlock*'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.
+***`Setup(const FPlayerResponse& InPlayerResponse, UDialogueComponent\* InDialogueComponent)`*** is how each button that is created gets the correct information to display. The *ResponseTextBlock*'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.
 
-***OnResponseClicked()*** When one of the response buttons has been pressed by the player, it tells the DialogueComponent to move on to the *NextDialogueID*, progressing, or ending the conversation.
+***`OnResponseClicked()`*** When one of the response buttons has been pressed by the player, it tells the DialogueComponent to move on to the *NextDialogueID*, progressing, or ending the conversation.
 
 With this response button I opted to use URichText over a UTextBlock as we are using formattable text throught most of the informationals, so it ties in nicely and allows us full creative reign with customising what each button displays. If we wanted an option to be shown to the player that they don't yet have access to (which I don't think we'll do, but just as an example), we could set the text of it to red via the RichText and disable the button. 
 
@@ -86,7 +86,7 @@ This is everything that is seen by the player. The dialogue window, the NPC's na
 
 ![DialogueWidget.cpp](/assets/DialogueSystem/DialogueWidgetCPP.png)
 
-***UpdateDialogue(const FText& NPCText, const TArray<FPlayerResponses>& PlayerResponse)*** This is absolutely everything that is required of this widget. This updates the NPC's dialogue and the player's responses. It sets hte NPCTextBlock, which is the dialogue to be the NPCText, which is provided by the DialogueComponent.
+***`UpdateDialogue(const FText& NPCText, const TArray<FPlayerResponses>& PlayerResponse)`*** This is absolutely everything that is required of this widget. This updates the NPC's dialogue and the player's responses. It sets hte NPCTextBlock, which is the dialogue to be the NPCText, which is provided by the DialogueComponent.
 It also checks for the ResponsesBox, which is just a VerticalBox in the widget that holds all of the player's responses. It clears all of the widgets within the VerticalBox, then populates them based on the number of Responses in PlayerResponses. If there are 13 responses that the player could give, there would be 13 responses created by this function.
 
 ![DialogueExample1](/assets/DialogueSystem/DialogueExample1.png)
