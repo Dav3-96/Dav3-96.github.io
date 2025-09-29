@@ -2,6 +2,8 @@ This is a branching, modular dialogue system.
 
 Core Concept: Create an infinite branching dialogue system that can rival that of CRPG's such as Baldur's Gate 1 & 2, Pathfinder Kingmaker and Wrath of the Righteous, Neverwinter Nights and Pillars of Eternity 1 & 2.
 
+[Posted: 28/09/2025]
+
 ## DialogueComponent
 
 The DialogueComponent is the brains behind the whole system. This can be applied to any AActor, APawn or ACharacter that the player can converse with. This controls the flow of the dialogue via a DataTable.
@@ -54,7 +56,7 @@ This widget is pretty much all that is needed for handling the player's response
 
 ![DialogueResponseButton.cpp](../assets/DialogueSystem/ResponseButtonCPP.png)
 
-***`Setup(const FPlayerResponse& InPlayerResponse, UDialogueComponent* InDialogueComponent)`*** is how each button that is created gets the correct information to display. The *ResponseTextBlock*'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.
+***`Setup(const FPlayerResponse& InPlayerResponse, UDialogueComponent\* InDialogueComponent)`*** is how each button that is created gets the correct information to display. The *ResponseTextBlock*'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.
 
 ***`OnResponseClicked()`*** When one of the response buttons has been pressed by the player, it tells the DialogueComponent to move on to the *NextDialogueID*, progressing, or ending the conversation.
 
@@ -78,3 +80,25 @@ It also checks for the ResponsesBox, which is just a VerticalBox in the widget t
 ![DialogueExample2](../assets/DialogueSystem/DialogueExample2.png)
 
 These two dialogue's are simple placeholders that show off the player being given one response, and multiple responses. All of the visuals for this widget are a work in progress but it is currently just to show it off that it works.
+
+
+<br>
+<br>
+<br>
+[Update - 29/09/2025]
+
+## Conditionals
+
+These work in a way to check if the player has met a certain condition to unlock a new dialogue path. These can range from having certain items, weapons, credits and/or if the player has defeated, or has been defeated by certain enemies. Conditionals can be added as needed and currently is a quite small list, but can be scaled infinitely.
+
+![Conditional1](../assets/DialogueSystem/Condi1.png)
+
+![Conditional2](../assets/DialogueSystem/Condi2.png)
+
+![Conditional3](../assets/DialogueSystem/Condi3.png)
+
+![Conditional4](../assets/DialogueSystem/Condi4.png)
+
+Code/in editor example of how the conditionals can work. In the engine example the Player Response 'I'm Rich haha' will only display if the player has 500 credits. Eventually this system will allow the NPC's to give the player rewards/sell items to the player. 
+
+The conditional can also check which enemies the player has defeated, and which enemies have defeated this player - the NPC's could then give insight into how to defeat the enemies, or one-run upgrades for credits that can provide resistances to said enemy that has defeated them etc etc..
