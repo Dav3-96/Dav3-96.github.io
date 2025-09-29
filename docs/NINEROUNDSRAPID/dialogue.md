@@ -54,7 +54,7 @@ This widget is pretty much all that is needed for handling the player's response
 
 ![DialogueResponseButton.cpp](../assets/DialogueSystem/ResponseButtonCPP.png)
 
-***`Setup(const FPlayerResponse& InPlayerResponse, UDialogueComponent\* InDialogueComponent)`*** is how each button that is created gets the correct information to display. The *ResponseTextBlock*'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.
+***`Setup(const FPlayerResponse& InPlayerResponse, UDialogueComponent* InDialogueComponent)`*** is how each button that is created gets the correct information to display. The *ResponseTextBlock*'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.
 
 ***`OnResponseClicked()`*** When one of the response buttons has been pressed by the player, it tells the DialogueComponent to move on to the *NextDialogueID*, progressing, or ending the conversation.
 
