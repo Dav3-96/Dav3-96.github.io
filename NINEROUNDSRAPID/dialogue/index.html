@@ -1,0 +1,679 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A compilation of personal, or work related documentation. Currently working on NINE ROUNDS RAPID with South Westerly Games Ltd.">
+      
+      
+        <meta name="author" content="Dave">
+      
+      
+        <link rel="canonical" href="https://dav3-96.github.io/NINEROUNDSRAPID/dialogue/">
+      
+      
+        <link rel="prev" href="../../about/">
+      
+      
+        <link rel="next" href="../ability_system/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Dialogue System - Dave's Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#dialoguecomponent" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Dave&#39;s Documentation" class="md-header__button md-logo" aria-label="Dave's Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Dave's Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Dialogue System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Dave&#39;s Documentation" class="md-nav__button md-logo" aria-label="Dave's Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Dave's Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    NINEROUND RAPID
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            NINEROUND RAPID
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Dialogue System
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dialogue System
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dialoguecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      DialogueComponent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialoguestructures" class="md-nav__link">
+    <span class="md-ellipsis">
+      DialogueStructures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialogue-response-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dialogue Response Button
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialogue-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dialogue Widget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditionals
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ability_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ability System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../status_effects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Status Effects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dialoguecomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      DialogueComponent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialoguestructures" class="md-nav__link">
+    <span class="md-ellipsis">
+      DialogueStructures
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialogue-response-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dialogue Response Button
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dialogue-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dialogue Widget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditionals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditionals
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Dialogue System</h1>
+
+<p>This is a branching, modular dialogue system.</p>
+<p>Core Concept: Create an infinite branching dialogue system that can rival that of CRPG's such as Baldur's Gate 1 &amp; 2, Pathfinder Kingmaker and Wrath of the Righteous, Neverwinter Nights and Pillars of Eternity 1 &amp; 2.</p>
+<p>[Posted: 28/09/2025]</p>
+<h2 id="dialoguecomponent">DialogueComponent<a class="headerlink" href="#dialoguecomponent" title="Permanent link">&para;</a></h2>
+<p>The DialogueComponent is the brains behind the whole system. This can be applied to any AActor, APawn or ACharacter that the player can converse with. This controls the flow of the dialogue via a DataTable.</p>
+<p><img alt="DialogueComponent.h" src="../assets/DialogueSystem/DialogueComponentH.png" /></p>
+<p><img alt="DialogueComponent.cpp" src="../assets/DialogueSystem/DialogueComponentCPP.png" /></p>
+<p>The DialogueComponent holds information to the DialogueWidget, DialogueDataTable and the CurrentDialogueID. It also had information of the NPC that it is associated with, however that was removed, and I just didn't remove the commented out code, or the NPC line from the header file before the screenshot was taken.</p>
+<p><strong><em><code>StartDialogue()</code></em></strong> being BlueprintCallable makes this system extremely modular with blueprints, allowing it to be attached to any actor in the game at all, making the system modular to apply.</p>
+<p><strong><em><code>SelectPlayerResponse(FName NextDialogueID)</code></em></strong> is what handles the branching system entirely. This gets the DialogueID line from the DataTable that is tied to the player response. If the player response DialogueID is 'none' it ends the conversation, and closes the dialogue window.</p>
+<p><strong><em><code>ShowDialogue(FName DialogueID)</code></em></strong> This is where the dialogue is pulled from the data table and shown to the player. If the dialogue data is nullptr, nothing will happen. If the DialogueWidget doesn't exist, it will create one, then update the dialogue. </p>
+<p>This works by finding the row 'DialogueID' in the DataTable, which must be named appropriately to the PlayerResponse DialogueID.</p>
+<h2 id="dialoguestructures">DialogueStructures<a class="headerlink" href="#dialoguestructures" title="Permanent link">&para;</a></h2>
+<p><img alt="DialogueStructures.h" src="../assets/DialogueSystem/DialogueStructuresH.png" /></p>
+<p>The dialogue structures are the DataTable and the player's responses. The <strong><em>FPlayerResponse</em></strong> struct contains the <em>ResponseText</em>, which is the text that will appear on the button that the player has the option to press to continue the dialogue, and <em>NextDialogueID</em> which is where the dialogue will go if the option is selected.
+<strong><em>FDialogueData</em></strong> contains the NPC's dialogue, and an array of <strong><em>FPlayerResponse</em></strong>, this allows the player to have multiple options for each part of the dialogue, this could effectivly be infinite, but I'm sure there's a limit.</p>
+<p><img alt="DialogueDataTable1" src="../assets/DialogueSystem/DialogueDT1.png" /></p>
+<p>This is an example of the dialogue data table that can hold the infinitely branching dialogue. The <strong>Row Name</strong> is what MUST match the NextDialogueID of the PlayerResponse. In this case, one of the responses from the player must lead to the NextDialogueID of 'WhatAreYou'.</p>
+<p><img alt="DialogueDataTable2" src="../assets/DialogueSystem/DialogueDT2.png" /></p>
+<p>This is the whole information for row <em>Initial</em>, which is the greeting to the player. The player is given two options here, to ask the NPC what they are, or to just say goodbye. Asking the NPC 'What are you?' leads to the NextDialogueID of WhatAreYou, like what was stated above, this matches the next row. Also the player can say 'Goodbye' which leads to NextDialogueID of 'none' which looking back to the DialogueComponent, you can see that 'none' ends the dialogue.</p>
+<p><img alt="DialogueDataTable3" src="../assets/DialogueSystem/DialogueDT3.png" /></p>
+<p>This screenshot is a little redundant, but it's a way to show how the dialogue can be simply ended by giving the player one choice. The Response Text could also be set to something like 'End Conversation', or 'End Dialogue' too.</p>
+<p><img alt="DialogueDataSheet" src="../assets/DialogueSystem/DialogueStructureSHEET.png" />
+This sheet is pretty much a way for pre-planning any form of dialogue that will go into any of the NPC's. The one that is shown is an example, that includes the conditional's, which are yet to be implemented, however they are already planned out and are a work in progress.
+The sheet reflects how simple it is to populate the data, and allows dialogue planning to be thought out outside of the engine, in a similar methodology to what is required in editor.</p>
+<h2 id="dialogue-response-button">Dialogue Response Button<a class="headerlink" href="#dialogue-response-button" title="Permanent link">&para;</a></h2>
+<p>This widget is pretty much all that is needed for handling the player's responses. It's set up be created as many times as required based on the amount of responses that the player will have. This is handled via the main dialogue widget itself.
+<img alt="DialogueResponseButton.h" src="../assets/DialogueSystem/ResponseButtonH.png" /></p>
+<p><img alt="DialogueResponseButton.cpp" src="../assets/DialogueSystem/ResponseButtonCPP.png" /></p>
+<p><strong><em><code>Setup(const FPlayerResponse&amp; InPlayerResponse, UDialogueComponent\* InDialogueComponent)</code></em></strong> is how each button that is created gets the correct information to display. The <em>ResponseTextBlock</em>'s text is set to be the ResponseText from the struct, however this does need to be passed into the button which is done in the main Dialogue Widget.</p>
+<p><strong><em><code>OnResponseClicked()</code></em></strong> When one of the response buttons has been pressed by the player, it tells the DialogueComponent to move on to the <em>NextDialogueID</em>, progressing, or ending the conversation.</p>
+<p>With this response button I opted to use URichText over a UTextBlock as we are using formattable text throught most of the informationals, so it ties in nicely and allows us full creative reign with customising what each button displays. If we wanted an option to be shown to the player that they don't yet have access to (which I don't think we'll do, but just as an example), we could set the text of it to red via the RichText and disable the button. </p>
+<h2 id="dialogue-widget">Dialogue Widget<a class="headerlink" href="#dialogue-widget" title="Permanent link">&para;</a></h2>
+<p>This is everything that is seen by the player. The dialogue window, the NPC's name, what they're saying, an image of the NPC and the player's responses.</p>
+<p><img alt="DialogueWidget.h" src="../assets/DialogueSystem/DialogueWidgetH.png" /></p>
+<p><img alt="DialogueWidget.cpp" src="../assets/DialogueSystem/DialogueWidgetCPP.png" /></p>
+<p><strong><em><code>UpdateDialogue(const FText&amp; NPCText, const TArray&lt;FPlayerResponses&gt;&amp; PlayerResponse)</code></em></strong> This is absolutely everything that is required of this widget. This updates the NPC's dialogue and the player's responses. It sets hte NPCTextBlock, which is the dialogue to be the NPCText, which is provided by the DialogueComponent.
+It also checks for the ResponsesBox, which is just a VerticalBox in the widget that holds all of the player's responses. It clears all of the widgets within the VerticalBox, then populates them based on the number of Responses in PlayerResponses. If there are 13 responses that the player could give, there would be 13 responses created by this function.</p>
+<p><img alt="DialogueExample1" src="../assets/DialogueSystem/DialogueExample1.png" /></p>
+<p><img alt="DialogueExample2" src="../assets/DialogueSystem/DialogueExample2.png" /></p>
+<p>These two dialogue's are simple placeholders that show off the player being given one response, and multiple responses. All of the visuals for this widget are a work in progress but it is currently just to show it off that it works.</p>
+<p><br>
+<br>
+<br>
+[Update - 29/09/2025]</p>
+<h2 id="conditionals">Conditionals<a class="headerlink" href="#conditionals" title="Permanent link">&para;</a></h2>
+<p>These work in a way to check if the player has met a certain condition to unlock a new dialogue path. These can range from having certain items, weapons, credits and/or if the player has defeated, or has been defeated by certain enemies. Conditionals can be added as needed and currently is a quite small list, but can be scaled infinitely.</p>
+<p><img alt="Conditional1" src="../assets/DialogueSystem/Condi1.png" /></p>
+<p><img alt="Conditional2" src="../assets/DialogueSystem/Condi2.png" /></p>
+<p><img alt="Conditional3" src="../assets/DialogueSystem/Condi3.png" /></p>
+<p><img alt="Conditional4" src="../assets/DialogueSystem/Condi4.png" /></p>
+<p>Code/in editor example of how the conditionals can work. In the engine example the Player Response 'I'm Rich haha' will only display if the player has 500 credits. Eventually this system will allow the NPC's to give the player rewards/sell items to the player. </p>
+<p>The conditional can also check which enemies the player has defeated, and which enemies have defeated this player - the NPC's could then give insight into how to defeat the enemies, or one-run upgrades for credits that can provide resistances to said enemy that has defeated them etc etc..</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.sections", "navigation.instant"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="../../js/custom.js"></script>
+      
+    
+  </body>
+</html>
