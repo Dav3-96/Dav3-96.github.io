@@ -1,0 +1,60 @@
+site_name: Dave's Documentation
+site_url: https://dav3-96.github.io
+site_description: A compilation of personal, or work related documentation. Currently working on NINE ROUNDS RAPID with South Westerly Games Ltd.
+site_author: Dave
+
+# Theme configuration
+theme:
+  name: material
+  palette:
+    - scheme: slate          # Dark mode first = default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default        # Light mode
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.expand      # Collapsible sidebar
+    - navigation.sections    # Section headers in nav
+    - navigation.instant     # Instant loading between pages
+
+  extra_css:
+    - 'css/custom.css'       # Custom CSS file for further styling
+  extra_javascript:
+    - 'js/custom.js'         # Custom JS file for additional functionality
+  extra:
+    footer: "<div class='footer'><p>© 2025 David Westcott. © 2025 South Westerly Games Ltd.</p></div>"
+
+# Navigation structure
+nav:
+  - Home: index.md
+  - About: about.md
+  - NINEROUND RAPID:
+      - Dialogue System: NINEROUNDSRAPID/dialogue.md
+      - Ability System: NINEROUNDSRAPID/ability_system.md
+      - Status Effects: NINEROUNDSRAPID/status_effects.md
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.betterem
+
+# Optional extra CSS/JS (for custom tweaks)
+extra_css:
+  - css/custom.css  # create this file if you want to style things further
+extra_javascript:
+  - js/custom.js    # optional, for custom JS
+
+# Dev server address (avoids conflicts like port 8000)
+dev_addr: 127.0.0.1:8081
